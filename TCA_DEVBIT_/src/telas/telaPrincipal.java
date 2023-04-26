@@ -26,22 +26,126 @@ public class telaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TbTabelaTelaPrincipal = new javax.swing.JTable();
+        BtnCadastrarProdutosTelaPrincipal = new javax.swing.JButton();
+        BtnExcluirProdutoTelaPrincipal = new javax.swing.JButton();
+        BtnAlterarProdutoTelaPrincipal1 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        MnCadastrarTelaPrincipal = new javax.swing.JMenu();
+        MnRelatorioTelaPrincipal = new javax.swing.JMenu();
+        MnAjudaTelaPrincipal = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
+        TbTabelaTelaPrincipal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TbTabelaTelaPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        TbTabelaTelaPrincipal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Código", "Produto", "Tipo Unitario", "Fornecedor", "Estoque Atual"
+            }
+        ));
+        TbTabelaTelaPrincipal.setName(""); // NOI18N
+        TbTabelaTelaPrincipal.setOpaque(false);
+        TbTabelaTelaPrincipal.setSelectionBackground(new java.awt.Color(51, 255, 0));
+        jScrollPane1.setViewportView(TbTabelaTelaPrincipal);
 
-        setSize(new java.awt.Dimension(616, 408));
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(400, 60, 530, 380);
+
+        BtnCadastrarProdutosTelaPrincipal.setBackground(new java.awt.Color(102, 102, 255));
+        BtnCadastrarProdutosTelaPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BtnCadastrarProdutosTelaPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCadastrarProdutosTelaPrincipal.setText("Cadastrar Produto");
+        BtnCadastrarProdutosTelaPrincipal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnCadastrarProdutosTelaPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCadastrarProdutosTelaPrincipalActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnCadastrarProdutosTelaPrincipal);
+        BtnCadastrarProdutosTelaPrincipal.setBounds(50, 70, 240, 100);
+
+        BtnExcluirProdutoTelaPrincipal.setBackground(new java.awt.Color(102, 102, 255));
+        BtnExcluirProdutoTelaPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BtnExcluirProdutoTelaPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExcluirProdutoTelaPrincipal.setText("Excluir Produto");
+        BtnExcluirProdutoTelaPrincipal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnExcluirProdutoTelaPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExcluirProdutoTelaPrincipalActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnExcluirProdutoTelaPrincipal);
+        BtnExcluirProdutoTelaPrincipal.setBounds(50, 330, 240, 100);
+
+        BtnAlterarProdutoTelaPrincipal1.setBackground(new java.awt.Color(102, 102, 255));
+        BtnAlterarProdutoTelaPrincipal1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BtnAlterarProdutoTelaPrincipal1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAlterarProdutoTelaPrincipal1.setText("Alterar Produto");
+        BtnAlterarProdutoTelaPrincipal1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnAlterarProdutoTelaPrincipal1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAlterarProdutoTelaPrincipal1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnAlterarProdutoTelaPrincipal1);
+        BtnAlterarProdutoTelaPrincipal1.setBounds(50, 200, 240, 100);
+
+        jMenuBar1.setBackground(new java.awt.Color(51, 102, 255));
+
+        MnCadastrarTelaPrincipal.setText("Cadastro");
+        jMenuBar1.add(MnCadastrarTelaPrincipal);
+
+        MnRelatorioTelaPrincipal.setText("Relatorio");
+        jMenuBar1.add(MnRelatorioTelaPrincipal);
+
+        MnAjudaTelaPrincipal.setText("Ajuda");
+        jMenuBar1.add(MnAjudaTelaPrincipal);
+
+        setJMenuBar(jMenuBar1);
+
+        setSize(new java.awt.Dimension(1006, 548));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnCadastrarProdutosTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarProdutosTelaPrincipalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnCadastrarProdutosTelaPrincipalActionPerformed
+
+    private void BtnExcluirProdutoTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirProdutoTelaPrincipalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnExcluirProdutoTelaPrincipalActionPerformed
+
+    private void BtnAlterarProdutoTelaPrincipal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarProdutoTelaPrincipal1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnAlterarProdutoTelaPrincipal1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +183,14 @@ public class telaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAlterarProdutoTelaPrincipal1;
+    private javax.swing.JButton BtnCadastrarProdutosTelaPrincipal;
+    private javax.swing.JButton BtnExcluirProdutoTelaPrincipal;
+    private javax.swing.JMenu MnAjudaTelaPrincipal;
+    private javax.swing.JMenu MnCadastrarTelaPrincipal;
+    private javax.swing.JMenu MnRelatorioTelaPrincipal;
+    private javax.swing.JTable TbTabelaTelaPrincipal;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
