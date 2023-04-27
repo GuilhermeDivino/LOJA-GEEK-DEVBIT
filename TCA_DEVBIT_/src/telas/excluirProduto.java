@@ -26,22 +26,100 @@ public class excluirProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        iblAvisoExcluir4 = new javax.swing.JLabel();
+        iblCodigoExcluir = new javax.swing.JLabel();
+        iblAvisoExcluir1 = new javax.swing.JLabel();
+        iblAvisoExcluir2 = new javax.swing.JLabel();
+        iblAvisoExcluir3 = new javax.swing.JLabel();
+        iblAvisoExcluir = new javax.swing.JLabel();
+        TxtCodigoExcluir = new javax.swing.JTextField();
+        BtnExcluirExcluir = new javax.swing.JButton();
+        MnExcluir = new javax.swing.JMenuBar();
+        MnCadastroExcluir = new javax.swing.JMenu();
+        MnRelatorioExcluir = new javax.swing.JMenu();
+        MnAjudaTelaExcluir = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
+        iblAvisoExcluir4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        iblAvisoExcluir4.setForeground(new java.awt.Color(255, 102, 102));
+        iblAvisoExcluir4.setText("excluí-las e considere fazer um backup dos dados importantes antes de qualquer exclusão. ");
+        getContentPane().add(iblAvisoExcluir4);
+        iblAvisoExcluir4.setBounds(130, 200, 790, 100);
 
-        setSize(new java.awt.Dimension(616, 408));
+        iblCodigoExcluir.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        iblCodigoExcluir.setText("CÓDIGO:");
+        getContentPane().add(iblCodigoExcluir);
+        iblCodigoExcluir.setBounds(120, 280, 150, 100);
+
+        iblAvisoExcluir1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        iblAvisoExcluir1.setForeground(new java.awt.Color(255, 102, 102));
+        iblAvisoExcluir1.setText("Por favor, esteja ciente de que, quando você excluir informações da tabela, elas serão");
+        getContentPane().add(iblAvisoExcluir1);
+        iblAvisoExcluir1.setBounds(150, 110, 680, 100);
+
+        iblAvisoExcluir2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        iblAvisoExcluir2.setForeground(new java.awt.Color(255, 102, 102));
+        iblAvisoExcluir2.setText("permanentemente removidas e não poderão ser recuperadas.");
+        getContentPane().add(iblAvisoExcluir2);
+        iblAvisoExcluir2.setBounds(240, 140, 490, 100);
+
+        iblAvisoExcluir3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        iblAvisoExcluir3.setForeground(new java.awt.Color(255, 102, 102));
+        iblAvisoExcluir3.setText("Recomendamos que você verifique cuidadosamente todas as informações antes de");
+        getContentPane().add(iblAvisoExcluir3);
+        iblAvisoExcluir3.setBounds(150, 170, 680, 100);
+
+        iblAvisoExcluir.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        iblAvisoExcluir.setForeground(new java.awt.Color(255, 102, 102));
+        iblAvisoExcluir.setText("AVISO: Exclusão de informações na tabela");
+        getContentPane().add(iblAvisoExcluir);
+        iblAvisoExcluir.setBounds(140, 40, 720, 100);
+
+        TxtCodigoExcluir.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        TxtCodigoExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtCodigoExcluirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TxtCodigoExcluir);
+        TxtCodigoExcluir.setBounds(100, 360, 610, 100);
+
+        BtnExcluirExcluir.setBackground(new java.awt.Color(102, 153, 255));
+        BtnExcluirExcluir.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        BtnExcluirExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExcluirExcluir.setText("Excluir");
+        BtnExcluirExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExcluirExcluirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnExcluirExcluir);
+        BtnExcluirExcluir.setBounds(720, 360, 170, 100);
+
+        MnCadastroExcluir.setText("Cadastro");
+        MnExcluir.add(MnCadastroExcluir);
+
+        MnRelatorioExcluir.setText("Relatorio");
+        MnExcluir.add(MnRelatorioExcluir);
+
+        MnAjudaTelaExcluir.setText("Ajuda");
+        MnExcluir.add(MnAjudaTelaExcluir);
+
+        setJMenuBar(MnExcluir);
+
+        setSize(new java.awt.Dimension(1006, 548));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TxtCodigoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCodigoExcluirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtCodigoExcluirActionPerformed
+
+    private void BtnExcluirExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirExcluirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnExcluirExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +157,17 @@ public class excluirProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnExcluirExcluir;
+    private javax.swing.JMenu MnAjudaTelaExcluir;
+    private javax.swing.JMenu MnCadastroExcluir;
+    private javax.swing.JMenuBar MnExcluir;
+    private javax.swing.JMenu MnRelatorioExcluir;
+    private javax.swing.JTextField TxtCodigoExcluir;
+    private javax.swing.JLabel iblAvisoExcluir;
+    private javax.swing.JLabel iblAvisoExcluir1;
+    private javax.swing.JLabel iblAvisoExcluir2;
+    private javax.swing.JLabel iblAvisoExcluir3;
+    private javax.swing.JLabel iblAvisoExcluir4;
+    private javax.swing.JLabel iblCodigoExcluir;
     // End of variables declaration//GEN-END:variables
 }
