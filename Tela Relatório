@@ -1,0 +1,89 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class DevbitRelatorios {
+    // Lista de produtos e suas informações
+    private static List<Produto> produtos = new ArrayList<>();
+
+    // Lista de vendas realizadas
+    private static List<Venda> vendas = new ArrayList<>();
+
+    // Scanner para entrada de dados do usuário
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        // Adicionar produtos iniciais
+        produtos.add(new Produto("Camiseta Star Wars", 50, 39.99));
+        produtos.add(new Produto("Caneca Game of Thrones", 25, 29.99));
+        produtos.add(new Produto("Action Figure Pikachu", 10, 99.99));
+        produtos.add(new Produto("Poster Harry Potter", 100, 14.99));
+
+        // Menu principal
+        while (true) {
+            System.out.println("=== Sistema de Relatórios Devbit ===");
+            System.out.println("Selecione uma opção:");
+            System.out.println("1. Gerar relatório de vendas");
+            System.out.println("2. Adicionar venda");
+            System.out.println("3. Gerar relatório de estoque");
+            System.out.println("4. Sair");
+
+            int opcao = scanner.nextInt();
+            scanner.nextLine(); // consumir o caractere de nova linha após a entrada do usuário
+
+            switch (opcao) {
+                case 1:
+                    gerarRelatorioVendas();
+                    break;
+                case 2:
+                    adicionarVenda();
+                    break;
+                case 3:
+                    gerarRelatorioEstoque();
+                    break;
+                case 4:
+                    System.out.println("Obrigado por utilizar o sistema de relatórios Devbit. Até mais!");
+                    System.exit(0); // encerrar o programa
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+        }
+    }
+
+    // Método para gerar um relatório de vendas
+    private static void gerarRelatorioVendas() {
+        // Obter a data atual
+        LocalDate dataAtual = LocalDate.now();
+
+        // Obter o nome do arquivo para salvar o relatório
+        System.out.println("Digite o nome do arquivo para salvar o relatório de vendas (sem extensão):");
+        String nomeArquivo = scanner.nextLine() + ".csv";
+
+        // Abrir o arquivo para escrita
+        try {
+            FileWriter arquivo = new FileWriter(new File(nomeArquivo));
+
+            // Escrever o cabeçalho do relatório
+            arquivo.append("Relatório de Vendas,").append(dataAtual.toString()).append("\n");
+            arquivo.append("Produto,Quantidade Vendida,Total em Vendas\n");
+
+            // Loop pelos produtos e calcular as vendas
+            for (Produto produto : produtos) {
+                int vendasProduto = 0;
+                double totalVendas = 0.0;
+                for (Venda venda : vendas) {
+                    if (venda.getProduto().equals(produto.getNome())) {
+                        vendasProduto += venda.getQuantidade();
+                        totalVendas += venda.getQuantidade() * produto.getPreco();
+                    }
+                }
+
+                // Escrever as informações do produto no arquivo
+                arquivo.append(produto.getNome())
+                        .append(",")
+                        .append(Integer.toString(vendasProduto))
+                        .append(",")
