@@ -37,6 +37,7 @@ public class telaPrincipal extends javax.swing.JFrame {
         MnAjudaTelaPrincipal = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema DEVBIT");
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(null);
 
@@ -140,7 +141,7 @@ public class telaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCadastrarProdutosTelaPrincipalActionPerformed
 
     private void BtnExcluirProdutoTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirProdutoTelaPrincipalActionPerformed
-        // TODO add your handling code here:
+        new excluirProduto().setVisible(true); //Abre o ExcluirProduto
     }//GEN-LAST:event_BtnExcluirProdutoTelaPrincipalActionPerformed
 
     private void BtnAlterarProdutoTelaPrincipal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarProdutoTelaPrincipal1ActionPerformed
