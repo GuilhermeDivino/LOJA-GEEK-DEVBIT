@@ -144,7 +144,7 @@ public class telaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnExcluirProdutoTelaPrincipalActionPerformed
 
     private void BtnAlterarProdutoTelaPrincipal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarProdutoTelaPrincipal1ActionPerformed
-        // TODO add your handling code here:
+    new alterarProduto().setVisible(true);
     }//GEN-LAST:event_BtnAlterarProdutoTelaPrincipal1ActionPerformed
 
     /**

@@ -26,22 +26,79 @@ public class alterarProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        lblCodigo = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        btnConsultar = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        mnuInicio = new javax.swing.JMenu();
+        mnuRelatorio = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setLayout(null);
+
+        jPanel2.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel2.setLayout(null);
+
+        lblCodigo.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        lblCodigo.setText("CÓDIGO DO PRODUTO");
+        jPanel2.add(lblCodigo);
+        lblCodigo.setBounds(60, 10, 280, 20);
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(110, 120, 380, 40);
+
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtCodigo);
+        txtCodigo.setBounds(110, 160, 380, 30);
+
+        btnConsultar.setBackground(new java.awt.Color(51, 153, 0));
+        btnConsultar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnConsultar.setForeground(new java.awt.Color(255, 255, 255));
+        btnConsultar.setText("CONSULTAR");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnConsultar);
+        btnConsultar.setBounds(220, 210, 150, 60);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 600, 350);
+
+        mnuInicio.setText("INÍCIO  |");
+        jMenuBar1.add(mnuInicio);
+
+        mnuRelatorio.setText("RELATÓRIO  |");
+        jMenuBar1.add(mnuRelatorio);
+
+        jMenu3.setText("AJUDA  |");
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
 
         setSize(new java.awt.Dimension(616, 408));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoActionPerformed
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+    new alterarProduto2().setVisible(true);
+    }//GEN-LAST:event_btnConsultarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +136,14 @@ public class alterarProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConsultar;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JMenu mnuInicio;
+    private javax.swing.JMenu mnuRelatorio;
+    private javax.swing.JTextField txtCodigo;
     // End of variables declaration//GEN-END:variables
 }
