@@ -77,13 +77,13 @@ public class alterarProduto extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 600, 350);
 
-        mnuInicio.setText("INÍCIO  |");
+        mnuInicio.setText("INÍCIO  ");
         jMenuBar1.add(mnuInicio);
 
-        mnuRelatorio.setText("RELATÓRIO  |");
+        mnuRelatorio.setText("RELATÓRIO  ");
         jMenuBar1.add(mnuRelatorio);
 
-        jMenu3.setText("AJUDA  |");
+        jMenu3.setText("AJUDA  ");
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);

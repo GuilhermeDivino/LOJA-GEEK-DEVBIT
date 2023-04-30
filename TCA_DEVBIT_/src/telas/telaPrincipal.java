@@ -34,6 +34,7 @@ public class telaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         MnCadastrarTelaPrincipal = new javax.swing.JMenu();
         MnRelatorioTelaPrincipal = new javax.swing.JMenu();
+        mnItConsultarRelatorio = new javax.swing.JMenuItem();
         MnAjudaTelaPrincipal = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -125,6 +126,15 @@ public class telaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(MnCadastrarTelaPrincipal);
 
         MnRelatorioTelaPrincipal.setText("Relatorio");
+
+        mnItConsultarRelatorio.setText("Consultar");
+        mnItConsultarRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItConsultarRelatorioActionPerformed(evt);
+            }
+        });
+        MnRelatorioTelaPrincipal.add(mnItConsultarRelatorio);
+
         jMenuBar1.add(MnRelatorioTelaPrincipal);
 
         MnAjudaTelaPrincipal.setText("Ajuda");
@@ -147,6 +157,10 @@ public class telaPrincipal extends javax.swing.JFrame {
     private void BtnAlterarProdutoTelaPrincipal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarProdutoTelaPrincipal1ActionPerformed
     new alterarProduto().setVisible(true);
     }//GEN-LAST:event_BtnAlterarProdutoTelaPrincipal1ActionPerformed
+
+    private void mnItConsultarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItConsultarRelatorioActionPerformed
+        new relatorio().setVisible(true);
+    }//GEN-LAST:event_mnItConsultarRelatorioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,5 +207,6 @@ public class telaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable TbTabelaTelaPrincipal;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JMenuItem mnItConsultarRelatorio;
     // End of variables declaration//GEN-END:variables
 }

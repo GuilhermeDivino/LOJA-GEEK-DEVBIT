@@ -6,17 +6,17 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="mnuInicio">
           <Properties>
-            <Property name="text" type="java.lang.String" value="IN&#xcd;CIO  |"/>
+            <Property name="text" type="java.lang.String" value="IN&#xcd;CIO  "/>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuRelatorio">
           <Properties>
-            <Property name="text" type="java.lang.String" value="RELAT&#xd3;RIO  |"/>
+            <Property name="text" type="java.lang.String" value="RELAT&#xd3;RIO  "/>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="AJUDA  |"/>
+            <Property name="text" type="java.lang.String" value="AJUDA  "/>
           </Properties>
         </Menu>
       </SubComponents>

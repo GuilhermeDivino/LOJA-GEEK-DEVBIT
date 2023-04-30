@@ -39,7 +39,7 @@ public class excluirProduto extends javax.swing.JFrame {
         MnRelatorioExcluir = new javax.swing.JMenu();
         MnAjudaTelaExcluir = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
         iblAvisoExcluir4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
