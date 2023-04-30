@@ -162,3 +162,6 @@ public class relatorio2 extends javax.swing.JFrame {
     private javax.swing.JTable tblRelatorio;
     // End of variables declaration                   
 }
+
+
+
