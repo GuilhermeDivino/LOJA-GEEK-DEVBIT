@@ -4,10 +4,13 @@
  */
 package telas;
 
-/**
- *
- * @author guidi
- */
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 public class excluirProduto extends javax.swing.JFrame {
 
     /**
@@ -32,7 +35,7 @@ public class excluirProduto extends javax.swing.JFrame {
         iblAvisoExcluir2 = new javax.swing.JLabel();
         iblAvisoExcluir3 = new javax.swing.JLabel();
         iblAvisoExcluir = new javax.swing.JLabel();
-        TxtCodigoExcluir = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
         BtnExcluirExcluir = new javax.swing.JButton();
         MnExcluir = new javax.swing.JMenuBar();
         MnCadastroExcluir = new javax.swing.JMenu();
@@ -77,19 +80,20 @@ public class excluirProduto extends javax.swing.JFrame {
         getContentPane().add(iblAvisoExcluir);
         iblAvisoExcluir.setBounds(140, 40, 720, 100);
 
-        TxtCodigoExcluir.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        TxtCodigoExcluir.addActionListener(new java.awt.event.ActionListener() {
+        txtCodigo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtCodigoExcluirActionPerformed(evt);
+                txtCodigoActionPerformed(evt);
             }
         });
-        getContentPane().add(TxtCodigoExcluir);
-        TxtCodigoExcluir.setBounds(100, 360, 610, 100);
+        getContentPane().add(txtCodigo);
+        txtCodigo.setBounds(100, 360, 610, 100);
 
-        BtnExcluirExcluir.setBackground(new java.awt.Color(102, 153, 255));
+        BtnExcluirExcluir.setBackground(new java.awt.Color(255, 51, 51));
         BtnExcluirExcluir.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         BtnExcluirExcluir.setForeground(new java.awt.Color(255, 255, 255));
         BtnExcluirExcluir.setText("Excluir");
+        BtnExcluirExcluir.setBorder(null);
         BtnExcluirExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExcluirExcluirActionPerformed(evt);
@@ -113,12 +117,40 @@ public class excluirProduto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TxtCodigoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCodigoExcluirActionPerformed
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtCodigoExcluirActionPerformed
+    }//GEN-LAST:event_txtCodigoActionPerformed
 
     private void BtnExcluirExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirExcluirActionPerformed
-        // TODO add your handling code here:
+        if(txtCodigo.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"O código é obrigatório");
+            txtCodigo.requestFocus();
+            return; // para a execução do programa
+        }
+        try {
+            //Indica o nome da classe do driver JDBC colocada na Library do projto
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            //Faz a conexão com o banco de dados  guarda na variável conectado
+            Connection conectado = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco_lojageek", "root", "divino");
+            //Prepara um comando SQL DELETE incompleto
+            PreparedStatement stExcluir = conectado.prepareStatement("DELETE FROM produtos WHERE codigo = ?");
+            //Completa o comando SQL DELETE preparado na linha anterior
+            stExcluir.setString(1, txtCodigo.getText());
+             //Executa o comando DELETE e insere os dados digitados na tabela departamento do banco de dados
+            stExcluir.executeUpdate();
+            //Mostra a mensagem de confirmação da exclusao do registro na tabela do banco de dados
+            JOptionPane.showMessageDialog(null, "Produto excluído com sucesso");
+            //Limpar os campos na tela
+            txtCodigo.setText("");           
+            //Colocar o cursor no campo código
+            txtCodigo.requestFocus();
+        } catch (ClassNotFoundException ex) {
+            //Se a classe do driver JDBC não estiver na Library do projeto, mostra a mensagem de erro abaixo
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+
     }//GEN-LAST:event_BtnExcluirExcluirActionPerformed
 
     /**
@@ -162,12 +194,12 @@ public class excluirProduto extends javax.swing.JFrame {
     private javax.swing.JMenu MnCadastroExcluir;
     private javax.swing.JMenuBar MnExcluir;
     private javax.swing.JMenu MnRelatorioExcluir;
-    private javax.swing.JTextField TxtCodigoExcluir;
     private javax.swing.JLabel iblAvisoExcluir;
     private javax.swing.JLabel iblAvisoExcluir1;
     private javax.swing.JLabel iblAvisoExcluir2;
     private javax.swing.JLabel iblAvisoExcluir3;
     private javax.swing.JLabel iblAvisoExcluir4;
     private javax.swing.JLabel iblCodigoExcluir;
+    private javax.swing.JTextField txtCodigo;
     // End of variables declaration//GEN-END:variables
 }

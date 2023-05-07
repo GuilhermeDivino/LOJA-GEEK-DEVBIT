@@ -11,7 +11,7 @@ package telas;
 public class relatorio extends javax.swing.JFrame {
 
     /**
-     * Creates new form relatorio
+     * Creates new form relatorio2
      */
     public relatorio() {
         initComponents();
@@ -26,43 +26,22 @@ public class relatorio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BtnMaisVendidos = new javax.swing.JButton();
-        BtnMenosVendidos = new javax.swing.JButton();
         BtnMaiorEstoque = new javax.swing.JButton();
         BtnMenorEstoque = new javax.swing.JButton();
+        BtnMenosVendidos = new javax.swing.JButton();
+        BtnMaisVendidos = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        BtnMaiorEstoque1 = new javax.swing.JButton();
+        BtnMenorEstoque6 = new javax.swing.JButton();
+        BtnMaisVendidos2 = new javax.swing.JButton();
+        BtnMenosVendidos2 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         MnCadastrarTelaPrincipal = new javax.swing.JMenu();
-        MnRelatorio = new javax.swing.JMenu();
+        MnRelatorioTelaPrincipal = new javax.swing.JMenu();
         MnAjudaTelaPrincipal = new javax.swing.JMenu();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(null);
-
-        BtnMaisVendidos.setBackground(new java.awt.Color(102, 102, 255));
-        BtnMaisVendidos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BtnMaisVendidos.setForeground(new java.awt.Color(255, 255, 255));
-        BtnMaisVendidos.setText("Mais Vendidos");
-        BtnMaisVendidos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        BtnMaisVendidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnMaisVendidosActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BtnMaisVendidos);
-        BtnMaisVendidos.setBounds(190, 190, 210, 70);
-
-        BtnMenosVendidos.setBackground(new java.awt.Color(102, 102, 255));
-        BtnMenosVendidos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BtnMenosVendidos.setForeground(new java.awt.Color(255, 255, 255));
-        BtnMenosVendidos.setText("Menos Vendidos");
-        BtnMenosVendidos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        BtnMenosVendidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnMenosVendidosActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BtnMenosVendidos);
-        BtnMenosVendidos.setBounds(190, 270, 210, 70);
 
         BtnMaiorEstoque.setBackground(new java.awt.Color(102, 102, 255));
         BtnMaiorEstoque.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -74,8 +53,6 @@ public class relatorio extends javax.swing.JFrame {
                 BtnMaiorEstoqueActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnMaiorEstoque);
-        BtnMaiorEstoque.setBounds(190, 30, 210, 70);
 
         BtnMenorEstoque.setBackground(new java.awt.Color(102, 102, 255));
         BtnMenorEstoque.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -88,41 +65,162 @@ public class relatorio extends javax.swing.JFrame {
                 BtnMenorEstoqueActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnMenorEstoque);
-        BtnMenorEstoque.setBounds(190, 110, 210, 70);
+
+        BtnMenosVendidos.setBackground(new java.awt.Color(102, 102, 255));
+        BtnMenosVendidos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BtnMenosVendidos.setForeground(new java.awt.Color(255, 255, 255));
+        BtnMenosVendidos.setText("Menos Vendidos");
+        BtnMenosVendidos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnMenosVendidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMenosVendidosActionPerformed(evt);
+            }
+        });
+
+        BtnMaisVendidos.setBackground(new java.awt.Color(102, 102, 255));
+        BtnMaisVendidos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BtnMaisVendidos.setForeground(new java.awt.Color(255, 255, 255));
+        BtnMaisVendidos.setText("Mais Vendidos");
+        BtnMaisVendidos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnMaisVendidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMaisVendidosActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        BtnMaiorEstoque1.setBackground(new java.awt.Color(102, 102, 255));
+        BtnMaiorEstoque1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BtnMaiorEstoque1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnMaiorEstoque1.setText("Maior Estoque");
+        BtnMaiorEstoque1.setBorder(null);
+        BtnMaiorEstoque1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMaiorEstoque1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnMaiorEstoque1);
+        BtnMaiorEstoque1.setBounds(760, 170, 210, 80);
+
+        BtnMenorEstoque6.setBackground(new java.awt.Color(102, 102, 255));
+        BtnMenorEstoque6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BtnMenorEstoque6.setForeground(new java.awt.Color(255, 255, 255));
+        BtnMenorEstoque6.setText("Menor Estoque");
+        BtnMenorEstoque6.setToolTipText("");
+        BtnMenorEstoque6.setBorder(null);
+        BtnMenorEstoque6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMenorEstoque6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnMenorEstoque6);
+        BtnMenorEstoque6.setBounds(760, 370, 210, 80);
+
+        BtnMaisVendidos2.setBackground(new java.awt.Color(102, 102, 255));
+        BtnMaisVendidos2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BtnMaisVendidos2.setForeground(new java.awt.Color(255, 255, 255));
+        BtnMaisVendidos2.setText("Mais Vendidos");
+        BtnMaisVendidos2.setBorder(null);
+        BtnMaisVendidos2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMaisVendidos2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnMaisVendidos2);
+        BtnMaisVendidos2.setBounds(760, 270, 210, 80);
+
+        BtnMenosVendidos2.setBackground(new java.awt.Color(102, 102, 255));
+        BtnMenosVendidos2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BtnMenosVendidos2.setForeground(new java.awt.Color(255, 255, 255));
+        BtnMenosVendidos2.setText("Menos Vendidos");
+        BtnMenosVendidos2.setBorder(null);
+        BtnMenosVendidos2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMenosVendidos2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnMenosVendidos2);
+        BtnMenosVendidos2.setBounds(760, 70, 210, 80);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Codigo", "Produto", "Tipo Unitario", "Fornecedor"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(20, 40, 720, 420);
 
         jMenuBar1.setBackground(new java.awt.Color(51, 102, 255));
 
         MnCadastrarTelaPrincipal.setText("Cadastro");
         jMenuBar1.add(MnCadastrarTelaPrincipal);
 
-        MnRelatorio.setText("Relatorio");
-        jMenuBar1.add(MnRelatorio);
+        MnRelatorioTelaPrincipal.setText("Relatorio");
+        jMenuBar1.add(MnRelatorioTelaPrincipal);
 
         MnAjudaTelaPrincipal.setText("Ajuda");
         jMenuBar1.add(MnAjudaTelaPrincipal);
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(616, 408));
+        setSize(new java.awt.Dimension(1006, 548));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnMaisVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMaisVendidosActionPerformed
-        new relatorio2().setVisible(true);
-    }//GEN-LAST:event_BtnMaisVendidosActionPerformed
-
-    private void BtnMenosVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenosVendidosActionPerformed
-        new relatorio2().setVisible(true);
-    }//GEN-LAST:event_BtnMenosVendidosActionPerformed
-
     private void BtnMaiorEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMaiorEstoqueActionPerformed
-        new relatorio2().setVisible(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_BtnMaiorEstoqueActionPerformed
 
     private void BtnMenorEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenorEstoqueActionPerformed
-        new relatorio2().setVisible(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_BtnMenorEstoqueActionPerformed
+
+    private void BtnMaisVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMaisVendidosActionPerformed
+
+    }//GEN-LAST:event_BtnMaisVendidosActionPerformed
+
+    private void BtnMenosVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenosVendidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnMenosVendidosActionPerformed
+
+    private void BtnMaiorEstoque1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMaiorEstoque1ActionPerformed
+        
+    }//GEN-LAST:event_BtnMaiorEstoque1ActionPerformed
+
+    private void BtnMenorEstoque6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenorEstoque6ActionPerformed
+        
+    }//GEN-LAST:event_BtnMenorEstoque6ActionPerformed
+
+    private void BtnMaisVendidos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMaisVendidos2ActionPerformed
+       
+    }//GEN-LAST:event_BtnMaisVendidos2ActionPerformed
+
+    private void BtnMenosVendidos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenosVendidos2ActionPerformed
+        
+    }//GEN-LAST:event_BtnMenosVendidos2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,6 +248,7 @@ public class relatorio extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(relatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -161,12 +260,20 @@ public class relatorio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnMaiorEstoque;
+    private javax.swing.JButton BtnMaiorEstoque1;
     private javax.swing.JButton BtnMaisVendidos;
+    private javax.swing.JButton BtnMaisVendidos2;
     private javax.swing.JButton BtnMenorEstoque;
+    private javax.swing.JButton BtnMenorEstoque6;
     private javax.swing.JButton BtnMenosVendidos;
+    private javax.swing.JButton BtnMenosVendidos2;
     private javax.swing.JMenu MnAjudaTelaPrincipal;
     private javax.swing.JMenu MnCadastrarTelaPrincipal;
-    private javax.swing.JMenu MnRelatorio;
+    private javax.swing.JMenu MnRelatorioTelaPrincipal;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

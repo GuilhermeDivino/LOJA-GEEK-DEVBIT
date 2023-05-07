@@ -4,14 +4,18 @@
  */
 package telas;
 
-/**
- *
- * @author guidi
- */
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+
 public class alterarProduto extends javax.swing.JFrame {
 
     /**
-     * Creates new form alterarProduto
+     * Creates new form alterarProduto2
      */
     public alterarProduto() {
         initComponents();
@@ -26,41 +30,30 @@ public class alterarProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnConsultar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        lblCodigo = new javax.swing.JLabel();
+        lblProduto = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        lblUnitario = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        lblFornecedor = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        lblEstoque = new javax.swing.JLabel();
+        btnLimpar = new javax.swing.JButton();
+        txtEstoque = new javax.swing.JTextField();
+        txtFornecedor = new javax.swing.JTextField();
+        txtUnitario = new javax.swing.JTextField();
         txtCodigo = new javax.swing.JTextField();
-        btnConsultar = new javax.swing.JButton();
+        btnConsultar1 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        lblCodigo = new javax.swing.JLabel();
+        txtProduto = new javax.swing.JTextField();
+        btnAlterar1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuInicio = new javax.swing.JMenu();
         mnuRelatorio = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(null);
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setLayout(null);
-
-        jPanel2.setBackground(new java.awt.Color(0, 102, 204));
-        jPanel2.setLayout(null);
-
-        lblCodigo.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
-        lblCodigo.setText("CÓDIGO DO PRODUTO");
-        jPanel2.add(lblCodigo);
-        lblCodigo.setBounds(60, 10, 280, 20);
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(110, 120, 380, 40);
-
-        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtCodigo);
-        txtCodigo.setBounds(110, 160, 380, 30);
+        mnuAjuda = new javax.swing.JMenu();
 
         btnConsultar.setBackground(new java.awt.Color(51, 153, 0));
         btnConsultar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -71,11 +64,150 @@ public class alterarProduto extends javax.swing.JFrame {
                 btnConsultarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultar);
-        btnConsultar.setBounds(220, 210, 150, 60);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(228, 228, 228));
+        jPanel1.setLayout(null);
+
+        jPanel2.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel2.setLayout(null);
+
+        lblProduto.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblProduto.setForeground(new java.awt.Color(255, 255, 255));
+        lblProduto.setText("PRODUTO");
+        jPanel2.add(lblProduto);
+        lblProduto.setBounds(30, 0, 130, 40);
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(180, 140, 150, 40);
+
+        jPanel3.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel3.setLayout(null);
+
+        lblUnitario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblUnitario.setForeground(new java.awt.Color(255, 255, 255));
+        lblUnitario.setText("TPUNITARIO");
+        jPanel3.add(lblUnitario);
+        lblUnitario.setBounds(20, 0, 130, 40);
+
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(180, 190, 150, 40);
+
+        jPanel4.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel4.setLayout(null);
+
+        lblFornecedor.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblFornecedor.setForeground(new java.awt.Color(255, 255, 255));
+        lblFornecedor.setText("FORNECEDOR");
+        jPanel4.add(lblFornecedor);
+        lblFornecedor.setBounds(10, 0, 130, 40);
+
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(180, 240, 150, 40);
+
+        jPanel5.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel5.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(null);
+
+        lblEstoque.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblEstoque.setForeground(new java.awt.Color(255, 255, 255));
+        lblEstoque.setText("ESTOQUEAT");
+        jPanel5.add(lblEstoque);
+        lblEstoque.setBounds(20, 0, 130, 40);
+
+        jPanel1.add(jPanel5);
+        jPanel5.setBounds(180, 290, 150, 40);
+
+        btnLimpar.setBackground(new java.awt.Color(153, 153, 0));
+        btnLimpar.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnLimpar.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpar.setText("LIMPAR");
+        btnLimpar.setBorder(null);
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLimpar);
+        btnLimpar.setBounds(610, 350, 150, 50);
+
+        txtEstoque.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jPanel1.add(txtEstoque);
+        txtEstoque.setBounds(330, 290, 430, 40);
+
+        txtFornecedor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFornecedorActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtFornecedor);
+        txtFornecedor.setBounds(330, 240, 430, 40);
+
+        txtUnitario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jPanel1.add(txtUnitario);
+        txtUnitario.setBounds(330, 190, 430, 40);
+
+        txtCodigo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtCodigo);
+        txtCodigo.setBounds(330, 90, 430, 40);
+
+        btnConsultar1.setBackground(new java.awt.Color(51, 153, 0));
+        btnConsultar1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnConsultar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnConsultar1.setText("CONSULTAR");
+        btnConsultar1.setBorder(null);
+        btnConsultar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultar1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnConsultar1);
+        btnConsultar1.setBounds(180, 350, 150, 50);
+
+        jPanel6.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel6.setLayout(null);
+
+        lblCodigo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        lblCodigo.setText("CÓDIGO");
+        jPanel6.add(lblCodigo);
+        lblCodigo.setBounds(30, 0, 130, 40);
+
+        jPanel1.add(jPanel6);
+        jPanel6.setBounds(180, 90, 150, 40);
+
+        txtProduto.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProdutoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtProduto);
+        txtProduto.setBounds(330, 140, 430, 40);
+
+        btnAlterar1.setBackground(new java.awt.Color(204, 153, 0));
+        btnAlterar1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnAlterar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlterar1.setText("ALTERAR");
+        btnAlterar1.setBorder(null);
+        btnAlterar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterar1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAlterar1);
+        btnAlterar1.setBounds(400, 350, 150, 50);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 600, 350);
+        jPanel1.setBounds(0, 20, 990, 470);
 
         mnuInicio.setText("INÍCIO  ");
         jMenuBar1.add(mnuInicio);
@@ -83,67 +215,147 @@ public class alterarProduto extends javax.swing.JFrame {
         mnuRelatorio.setText("RELATÓRIO  ");
         jMenuBar1.add(mnuRelatorio);
 
-        jMenu3.setText("AJUDA  ");
-        jMenuBar1.add(jMenu3);
+        mnuAjuda.setText("AJUDA  ");
+        jMenuBar1.add(mnuAjuda);
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(616, 408));
+        setSize(new java.awt.Dimension(1006, 548));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFornecedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFornecedorActionPerformed
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        new alterarProduto().setVisible(true);
+    }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoActionPerformed
 
-    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-    new alterarProduto2().setVisible(true);
-    }//GEN-LAST:event_btnConsultarActionPerformed
+    private void txtProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProdutoActionPerformed
+
+    private void btnConsultar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultar1ActionPerformed
+      try {
+            //Faz a conexão com o banco de dados
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conectado = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco_lojageek", "root", "divino");
+            //Define o comando SELECT incompleto (?) a ser executado na busca do departmento
+            PreparedStatement stConsultar = conectado.prepareStatement("SELECT * FROM produtos WHERE codigo = ?");
+            //Indica qual valor será colocado no ? do comando SELECT
+            stConsultar.setString(1, txtCodigo.getText());
+            //Executa o comando SELECT criado e armazena o departamento trazido da tabela na variável resultado
+            ResultSet resultado = stConsultar.executeQuery();
+            if(resultado.next()){ //Se encontrou os dados do departamento
+                //Carregar os dados do departamento nos campos do formulário
+                txtProduto.setText(resultado.getString("Produto"));
+                txtUnitario.setText(resultado.getString("tpUnitario"));
+                txtFornecedor.setText(resultado.getString("Fornecedor"));
+                txtEstoque.setText(resultado.getString("Estoque"));
+            } else { //Se não encontrou o dados do departamento
+               //Mostra uma mensagem indicando que o departamento não foi encontrado
+               JOptionPane.showMessageDialog(null, "Produto não encontrado");
+               //Posiciona o cursor no campo txtCodigo
+               txtCodigo.requestFocus();
+            }
+        } catch (ClassNotFoundException ex) {
+            //Se der erro na linha do comndo Class.Forname, exibe esta mensagem
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } catch (SQLException ex) {
+            //Se você digitou alguma coisa do banco de dados incorretamente (nome do banco, nome da tabela, senha)
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+
+    }//GEN-LAST:event_btnConsultar1ActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        txtCodigo.setText("");
+        txtProduto.setText("");
+        txtUnitario.setText("");
+        txtFornecedor.setText("");
+        txtEstoque.requestFocus();
+
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void btnAlterar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterar1ActionPerformed
+       
+        if (txtCodigo.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "O código é obrigatório");
+            txtCodigo.requestFocus();
+            return; // para a execução do programa
+        }
+        try {
+            //Indica o nome da classe do driver JDBC colocada na Library do projto
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            //Faz a conexão com o banco de dados  guarda na variável conectado
+            Connection conectado = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco_lojageek", "root", "divino");
+            //Prepara um comando SQL UPDATE incompleto
+            PreparedStatement stAlterar = conectado.prepareStatement("UPDATE produtos SET produto = ? , tpunitario = ? , fornecedor = ?, estoque = ? WHERE codigo = ?");
+            //Completa o comando SQL UPDATE preparado na linha anterior
+            stAlterar.setString(1, txtProduto.getText());
+            stAlterar.setString(2, txtUnitario.getText());
+            stAlterar.setString(3, txtFornecedor.getText());
+            stAlterar.setString(4, txtEstoque.getText());
+            stAlterar.setString(5, txtCodigo.getText());
+            //Executa o comando UPDATE e insere os dados digitados na tabela departamento do banco de dados
+            stAlterar.executeUpdate();
+            //Mostra a mensagem de confirmação da alteração do registro na tabela do banco de dados
+            JOptionPane.showMessageDialog(null, "Produto alterado com sucesso");
+            
+            
+            //Limpar os campos na tela
+            
+            txtCodigo.setText("");
+            txtProduto.setText("");
+            txtUnitario.setText("");
+            txtFornecedor.setText("");
+            txtEstoque.setText("");
+            
+            //Colocar o cursor no campo código
+            txtCodigo.requestFocus();
+        } catch (ClassNotFoundException ex) {
+            //Se a classe do driver JDBC não estiver na Library do projeto, mostra a mensagem de erro abaixo
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+
+    }//GEN-LAST:event_btnAlterar1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(alterarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(alterarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(alterarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(alterarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new alterarProduto().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterar1;
     private javax.swing.JButton btnConsultar;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JButton btnConsultar1;
+    private javax.swing.JButton btnLimpar;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblEstoque;
+    private javax.swing.JLabel lblFornecedor;
+    private javax.swing.JLabel lblProduto;
+    private javax.swing.JLabel lblUnitario;
+    private javax.swing.JMenu mnuAjuda;
     private javax.swing.JMenu mnuInicio;
     private javax.swing.JMenu mnuRelatorio;
     private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtEstoque;
+    private javax.swing.JTextField txtFornecedor;
+    private javax.swing.JTextField txtProduto;
+    private javax.swing.JTextField txtUnitario;
     // End of variables declaration//GEN-END:variables
 }
