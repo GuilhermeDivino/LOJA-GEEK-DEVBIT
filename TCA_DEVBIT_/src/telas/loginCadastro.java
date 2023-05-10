@@ -32,102 +32,13 @@ public class loginCadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblSenhaCadastro = new javax.swing.JLabel();
-        lblUsuarioCadastro = new javax.swing.JLabel();
-        txtUsuarioCadastro = new javax.swing.JTextField();
-        txtSenhaCadastro = new javax.swing.JPasswordField();
-        lblLoginCadastro = new javax.swing.JLabel();
-        btnLoginCadastrar = new javax.swing.JButton();
-        btnLoginCadastro = new javax.swing.JButton();
-        lblTemConta = new javax.swing.JLabel();
-        cbMostrarSenha = new javax.swing.JCheckBox();
-        lblImagem = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro");
         getContentPane().setLayout(null);
 
-        lblSenhaCadastro.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        lblSenhaCadastro.setForeground(new java.awt.Color(0, 255, 255));
-        lblSenhaCadastro.setText("Senha");
-        getContentPane().add(lblSenhaCadastro);
-        lblSenhaCadastro.setBounds(60, 140, 80, 20);
-
-        lblUsuarioCadastro.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        lblUsuarioCadastro.setForeground(new java.awt.Color(0, 255, 255));
-        lblUsuarioCadastro.setText("Usuario");
-        getContentPane().add(lblUsuarioCadastro);
-        lblUsuarioCadastro.setBounds(60, 70, 70, 20);
-
-        txtUsuarioCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioCadastroActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtUsuarioCadastro);
-        txtUsuarioCadastro.setBounds(60, 90, 320, 40);
-        getContentPane().add(txtSenhaCadastro);
-        txtSenhaCadastro.setBounds(60, 160, 320, 40);
-
-        lblLoginCadastro.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        lblLoginCadastro.setForeground(new java.awt.Color(51, 255, 255));
-        lblLoginCadastro.setText("Criar Conta");
-        getContentPane().add(lblLoginCadastro);
-        lblLoginCadastro.setBounds(160, 20, 130, 30);
-
-        btnLoginCadastrar.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
-        btnLoginCadastrar.setForeground(new java.awt.Color(0, 255, 255));
-        btnLoginCadastrar.setText("Cadastrar");
-        btnLoginCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginCadastrarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnLoginCadastrar);
-        btnLoginCadastrar.setBounds(80, 220, 270, 30);
-
-        btnLoginCadastro.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
-        btnLoginCadastro.setForeground(new java.awt.Color(0, 255, 255));
-        btnLoginCadastro.setText("Login");
-        btnLoginCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginCadastroActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnLoginCadastro);
-        btnLoginCadastro.setBounds(330, 290, 110, 30);
-
-        lblTemConta.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
-        lblTemConta.setForeground(new java.awt.Color(255, 255, 255));
-        lblTemConta.setText("Já tem conta?");
-        getContentPane().add(lblTemConta);
-        lblTemConta.setBounds(240, 290, 90, 30);
-
-        cbMostrarSenha.setFont(new java.awt.Font("Serif", 0, 12)); // NOI18N
-        cbMostrarSenha.setForeground(new java.awt.Color(0, 255, 255));
-        cbMostrarSenha.setText("Mostrar senha");
-        getContentPane().add(cbMostrarSenha);
-        cbMostrarSenha.setBounds(60, 200, 110, 21);
-
-        lblImagem.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\Downloads\\Design sem nome (2).png")); // NOI18N
-        getContentPane().add(lblImagem);
-        lblImagem.setBounds(0, 0, 440, 320);
-
-        setSize(new java.awt.Dimension(454, 357));
+        setSize(new java.awt.Dimension(536, 379));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtUsuarioCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioCadastroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioCadastroActionPerformed
-
-    private void btnLoginCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginCadastrarActionPerformed
-        new login().setVisible(true); //Abre a tela de Cadastro
-    }//GEN-LAST:event_btnLoginCadastrarActionPerformed
-
-    private void btnLoginCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginCadastroActionPerformed
-        new login().setVisible(true); //Abre a tela de Cadastro
-    }//GEN-LAST:event_btnLoginCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,15 +76,5 @@ public class loginCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLoginCadastrar;
-    private javax.swing.JButton btnLoginCadastro;
-    private javax.swing.JCheckBox cbMostrarSenha;
-    private javax.swing.JLabel lblImagem;
-    private javax.swing.JLabel lblLoginCadastro;
-    private javax.swing.JLabel lblSenhaCadastro;
-    private javax.swing.JLabel lblTemConta;
-    private javax.swing.JLabel lblUsuarioCadastro;
-    private javax.swing.JPasswordField txtSenhaCadastro;
-    private javax.swing.JTextField txtUsuarioCadastro;
     // End of variables declaration//GEN-END:variables
 }
