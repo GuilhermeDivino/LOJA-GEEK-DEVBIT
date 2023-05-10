@@ -32,9 +32,52 @@ public class loginCadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        lblSenha = new javax.swing.JLabel();
+        lblNome = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        txtSenha = new javax.swing.JTextField();
+        btnCadastrar = new javax.swing.JButton();
+        txtUsuario = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro");
         getContentPane().setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel1.setText("Criar conta");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(200, 10, 120, 30);
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(70, 40, 380, 10);
+
+        lblSenha.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblSenha.setText("Senha");
+        getContentPane().add(lblSenha);
+        lblSenha.setBounds(70, 170, 70, 30);
+
+        lblNome.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblNome.setText("Nome");
+        getContentPane().add(lblNome);
+        lblNome.setBounds(70, 50, 70, 30);
+
+        lblUsuario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblUsuario.setText("Usuário");
+        getContentPane().add(lblUsuario);
+        lblUsuario.setBounds(70, 110, 70, 30);
+        getContentPane().add(txtSenha);
+        txtSenha.setBounds(70, 200, 380, 30);
+
+        btnCadastrar.setBackground(new java.awt.Color(51, 102, 255));
+        btnCadastrar.setText("Cadastrar");
+        getContentPane().add(btnCadastrar);
+        btnCadastrar.setBounds(67, 254, 390, 30);
+        getContentPane().add(txtUsuario);
+        txtUsuario.setBounds(70, 140, 380, 30);
+        getContentPane().add(txtNome);
+        txtNome.setBounds(70, 80, 380, 30);
 
         setSize(new java.awt.Dimension(536, 379));
         setLocationRelativeTo(null);
@@ -76,5 +119,14 @@ public class loginCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblSenha;
+    private javax.swing.JLabel lblUsuario;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtSenha;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
