@@ -51,9 +51,14 @@ public class alterarProduto extends javax.swing.JFrame {
         txtProduto = new javax.swing.JTextField();
         btnAlterar1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        mnuInicio = new javax.swing.JMenu();
-        mnuRelatorio = new javax.swing.JMenu();
-        mnuAjuda = new javax.swing.JMenu();
+        MnCadastrarTelaPrincipal = new javax.swing.JMenu();
+        itmcadastrar = new javax.swing.JMenuItem();
+        itmalterar = new javax.swing.JMenuItem();
+        itmexcluir = new javax.swing.JMenuItem();
+        mnrelatorio = new javax.swing.JMenu();
+        mnItConsultarRelatorio = new javax.swing.JMenuItem();
+        MnAjudaTelaPrincipal = new javax.swing.JMenu();
+        itmajuda = new javax.swing.JMenuItem();
 
         btnConsultar.setBackground(new java.awt.Color(51, 153, 0));
         btnConsultar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -209,14 +214,62 @@ public class alterarProduto extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 20, 990, 470);
 
-        mnuInicio.setText("INÍCIO  ");
-        jMenuBar1.add(mnuInicio);
+        MnCadastrarTelaPrincipal.setText("Cadastro");
 
-        mnuRelatorio.setText("RELATÓRIO  ");
-        jMenuBar1.add(mnuRelatorio);
+        itmcadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmcadastrar.setText("Cadastrar");
+        itmcadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmcadastrarActionPerformed(evt);
+            }
+        });
+        MnCadastrarTelaPrincipal.add(itmcadastrar);
 
-        mnuAjuda.setText("AJUDA  ");
-        jMenuBar1.add(mnuAjuda);
+        itmalterar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmalterar.setText("Alterar");
+        itmalterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmalterarActionPerformed(evt);
+            }
+        });
+        MnCadastrarTelaPrincipal.add(itmalterar);
+
+        itmexcluir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmexcluir.setText("Excluir");
+        itmexcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmexcluirActionPerformed(evt);
+            }
+        });
+        MnCadastrarTelaPrincipal.add(itmexcluir);
+
+        jMenuBar1.add(MnCadastrarTelaPrincipal);
+
+        mnrelatorio.setText("Relatorio");
+
+        mnItConsultarRelatorio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnItConsultarRelatorio.setText("Consultar");
+        mnItConsultarRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItConsultarRelatorioActionPerformed(evt);
+            }
+        });
+        mnrelatorio.add(mnItConsultarRelatorio);
+
+        jMenuBar1.add(mnrelatorio);
+
+        MnAjudaTelaPrincipal.setText("Ajuda");
+
+        itmajuda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmajuda.setText("geral");
+        itmajuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmajudaActionPerformed(evt);
+            }
+        });
+        MnAjudaTelaPrincipal.add(itmajuda);
+
+        jMenuBar1.add(MnAjudaTelaPrincipal);
 
         setJMenuBar(jMenuBar1);
 
@@ -327,16 +380,42 @@ public class alterarProduto extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnAlterar1ActionPerformed
 
+    private void itmcadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmcadastrarActionPerformed
+        new CadastrarProduto().setVisible(true);
+    }//GEN-LAST:event_itmcadastrarActionPerformed
+
+    private void itmalterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmalterarActionPerformed
+        new alterarProduto().setVisible(true);
+    }//GEN-LAST:event_itmalterarActionPerformed
+
+    private void itmexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmexcluirActionPerformed
+        new excluirProduto().setVisible(true);
+    }//GEN-LAST:event_itmexcluirActionPerformed
+
+    private void mnItConsultarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItConsultarRelatorioActionPerformed
+        new relatorio().setVisible(true);
+    }//GEN-LAST:event_mnItConsultarRelatorioActionPerformed
+
+    private void itmajudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmajudaActionPerformed
+        new ajuda().setVisible(true);
+    }//GEN-LAST:event_itmajudaActionPerformed
+
     /**
      * @param args the command line arguments
      */
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu MnAjudaTelaPrincipal;
+    private javax.swing.JMenu MnCadastrarTelaPrincipal;
     private javax.swing.JButton btnAlterar1;
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnConsultar1;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JMenuItem itmajuda;
+    private javax.swing.JMenuItem itmalterar;
+    private javax.swing.JMenuItem itmcadastrar;
+    private javax.swing.JMenuItem itmexcluir;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -349,9 +428,8 @@ public class alterarProduto extends javax.swing.JFrame {
     private javax.swing.JLabel lblFornecedor;
     private javax.swing.JLabel lblProduto;
     private javax.swing.JLabel lblUnitario;
-    private javax.swing.JMenu mnuAjuda;
-    private javax.swing.JMenu mnuInicio;
-    private javax.swing.JMenu mnuRelatorio;
+    private javax.swing.JMenuItem mnItConsultarRelatorio;
+    private javax.swing.JMenu mnrelatorio;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtEstoque;
     private javax.swing.JTextField txtFornecedor;

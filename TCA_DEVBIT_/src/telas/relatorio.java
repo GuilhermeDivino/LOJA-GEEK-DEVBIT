@@ -4,6 +4,14 @@
  */
 package telas;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author guidi
@@ -15,6 +23,32 @@ public class relatorio extends javax.swing.JFrame {
      */
     public relatorio() {
         initComponents();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conectado = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco_lojageek", "root", "divino");
+            PreparedStatement stConsultar = conectado.prepareStatement("SELECT * FROM produtos");
+            ResultSet resultado = stConsultar.executeQuery();
+            //Tira um molde da tabela
+            DefaultTableModel modeloTabela;
+            modeloTabela = (DefaultTableModel) TbTabelaTelaRelatorio.getModel();
+            //Limpa a tabela
+            modeloTabela.setRowCount(0);
+            //fazer enquanto tiver departamento na variável resultado
+            while (resultado.next()) { 
+              Object dep[] = {
+                resultado.getString("codigo"),
+                resultado.getString("produto"),
+                resultado.getString("tpunitario"),
+                resultado.getString("fornecedor"),
+                 resultado.getString("estoque")  
+              };
+              modeloTabela.addRow(dep);
+            } 
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }        
     }
 
     /**
@@ -32,16 +66,26 @@ public class relatorio extends javax.swing.JFrame {
         BtnMaisVendidos = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        BtnMaiorEstoque1 = new javax.swing.JButton();
-        BtnMenorEstoque6 = new javax.swing.JButton();
-        BtnMaisVendidos2 = new javax.swing.JButton();
-        BtnMenosVendidos2 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TbTabelaTelaRelatorio = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        btnPesquisar = new javax.swing.JButton();
+        txtPesquisar = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        btnPesquisar1 = new javax.swing.JButton();
+        btnPesquisar2 = new javax.swing.JButton();
+        txtPesquisar1 = new javax.swing.JTextField();
+        txtPesquisar2 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         MnCadastrarTelaPrincipal = new javax.swing.JMenu();
-        MnRelatorioTelaPrincipal = new javax.swing.JMenu();
+        itmcadastrar = new javax.swing.JMenuItem();
+        itmalterar = new javax.swing.JMenuItem();
+        itmexcluir = new javax.swing.JMenuItem();
+        mnrelatorio = new javax.swing.JMenu();
+        mnItConsultarRelatorio = new javax.swing.JMenuItem();
         MnAjudaTelaPrincipal = new javax.swing.JMenu();
+        itmajuda = new javax.swing.JMenuItem();
 
         BtnMaiorEstoque.setBackground(new java.awt.Color(102, 102, 255));
         BtnMaiorEstoque.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -104,89 +148,155 @@ public class relatorio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        BtnMaiorEstoque1.setBackground(new java.awt.Color(102, 102, 255));
-        BtnMaiorEstoque1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BtnMaiorEstoque1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnMaiorEstoque1.setText("Maior Estoque");
-        BtnMaiorEstoque1.setBorder(null);
-        BtnMaiorEstoque1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnMaiorEstoque1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BtnMaiorEstoque1);
-        BtnMaiorEstoque1.setBounds(760, 170, 210, 80);
-
-        BtnMenorEstoque6.setBackground(new java.awt.Color(102, 102, 255));
-        BtnMenorEstoque6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BtnMenorEstoque6.setForeground(new java.awt.Color(255, 255, 255));
-        BtnMenorEstoque6.setText("Menor Estoque");
-        BtnMenorEstoque6.setToolTipText("");
-        BtnMenorEstoque6.setBorder(null);
-        BtnMenorEstoque6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnMenorEstoque6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BtnMenorEstoque6);
-        BtnMenorEstoque6.setBounds(760, 370, 210, 80);
-
-        BtnMaisVendidos2.setBackground(new java.awt.Color(102, 102, 255));
-        BtnMaisVendidos2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BtnMaisVendidos2.setForeground(new java.awt.Color(255, 255, 255));
-        BtnMaisVendidos2.setText("Mais Vendidos");
-        BtnMaisVendidos2.setBorder(null);
-        BtnMaisVendidos2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnMaisVendidos2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BtnMaisVendidos2);
-        BtnMaisVendidos2.setBounds(760, 270, 210, 80);
-
-        BtnMenosVendidos2.setBackground(new java.awt.Color(102, 102, 255));
-        BtnMenosVendidos2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BtnMenosVendidos2.setForeground(new java.awt.Color(255, 255, 255));
-        BtnMenosVendidos2.setText("Menos Vendidos");
-        BtnMenosVendidos2.setBorder(null);
-        BtnMenosVendidos2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnMenosVendidos2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BtnMenosVendidos2);
-        BtnMenosVendidos2.setBounds(760, 70, 210, 80);
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TbTabelaTelaRelatorio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TbTabelaTelaRelatorio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        TbTabelaTelaRelatorio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Codigo", "Produto", "Tipo Unitario", "Fornecedor"
+                "Código", "Produto", "Tipo Unitario", "Fornecedor", "Estoque Atual"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        TbTabelaTelaRelatorio.setName(""); // NOI18N
+        TbTabelaTelaRelatorio.setOpaque(false);
+        TbTabelaTelaRelatorio.setSelectionBackground(new java.awt.Color(51, 255, 0));
+        jScrollPane3.setViewportView(TbTabelaTelaRelatorio);
 
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(20, 40, 720, 420);
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(50, 290, 880, 340);
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel8.setText("TPUNITARIO");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(10, 140, 140, 92);
+
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPesquisar);
+        btnPesquisar.setBounds(310, 20, 120, 60);
+
+        txtPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesquisarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtPesquisar);
+        txtPesquisar.setBounds(140, 20, 160, 60);
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel9.setText("CÓDIGO");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(40, 0, 140, 92);
+
+        btnPesquisar1.setText("Pesquisar");
+        btnPesquisar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPesquisar1);
+        btnPesquisar1.setBounds(310, 160, 120, 60);
+
+        btnPesquisar2.setText("Pesquisar");
+        btnPesquisar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisar2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPesquisar2);
+        btnPesquisar2.setBounds(310, 90, 120, 60);
+
+        txtPesquisar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesquisar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtPesquisar1);
+        txtPesquisar1.setBounds(140, 90, 160, 60);
+
+        txtPesquisar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesquisar2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtPesquisar2);
+        txtPesquisar2.setBounds(140, 160, 160, 60);
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel10.setText("PRODUTO");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(30, 70, 140, 92);
 
         jMenuBar1.setBackground(new java.awt.Color(51, 102, 255));
 
         MnCadastrarTelaPrincipal.setText("Cadastro");
+
+        itmcadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmcadastrar.setText("Cadastrar");
+        itmcadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmcadastrarActionPerformed(evt);
+            }
+        });
+        MnCadastrarTelaPrincipal.add(itmcadastrar);
+
+        itmalterar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmalterar.setText("Alterar");
+        itmalterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmalterarActionPerformed(evt);
+            }
+        });
+        MnCadastrarTelaPrincipal.add(itmalterar);
+
+        itmexcluir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmexcluir.setText("Excluir");
+        itmexcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmexcluirActionPerformed(evt);
+            }
+        });
+        MnCadastrarTelaPrincipal.add(itmexcluir);
+
         jMenuBar1.add(MnCadastrarTelaPrincipal);
 
-        MnRelatorioTelaPrincipal.setText("Relatorio");
-        jMenuBar1.add(MnRelatorioTelaPrincipal);
+        mnrelatorio.setText("Relatorio");
+
+        mnItConsultarRelatorio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnItConsultarRelatorio.setText("Consultar");
+        mnItConsultarRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItConsultarRelatorioActionPerformed(evt);
+            }
+        });
+        mnrelatorio.add(mnItConsultarRelatorio);
+
+        jMenuBar1.add(mnrelatorio);
 
         MnAjudaTelaPrincipal.setText("Ajuda");
+
+        itmajuda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmajuda.setText("geral");
+        itmajuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmajudaActionPerformed(evt);
+            }
+        });
+        MnAjudaTelaPrincipal.add(itmajuda);
+
         jMenuBar1.add(MnAjudaTelaPrincipal);
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(1006, 548));
+        setSize(new java.awt.Dimension(1006, 717));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -206,21 +316,127 @@ public class relatorio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnMenosVendidosActionPerformed
 
-    private void BtnMaiorEstoque1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMaiorEstoque1ActionPerformed
-        
-    }//GEN-LAST:event_BtnMaiorEstoque1ActionPerformed
+    private void itmcadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmcadastrarActionPerformed
+        new CadastrarProduto().setVisible(true);
+    }//GEN-LAST:event_itmcadastrarActionPerformed
 
-    private void BtnMenorEstoque6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenorEstoque6ActionPerformed
-        
-    }//GEN-LAST:event_BtnMenorEstoque6ActionPerformed
+    private void itmalterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmalterarActionPerformed
+        new alterarProduto().setVisible(true);
+    }//GEN-LAST:event_itmalterarActionPerformed
 
-    private void BtnMaisVendidos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMaisVendidos2ActionPerformed
-       
-    }//GEN-LAST:event_BtnMaisVendidos2ActionPerformed
+    private void itmexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmexcluirActionPerformed
+        new excluirProduto().setVisible(true);
+    }//GEN-LAST:event_itmexcluirActionPerformed
 
-    private void BtnMenosVendidos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenosVendidos2ActionPerformed
-        
-    }//GEN-LAST:event_BtnMenosVendidos2ActionPerformed
+    private void mnItConsultarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItConsultarRelatorioActionPerformed
+        new relatorio().setVisible(true);
+    }//GEN-LAST:event_mnItConsultarRelatorioActionPerformed
+
+    private void itmajudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmajudaActionPerformed
+        new ajuda().setVisible(true);
+    }//GEN-LAST:event_itmajudaActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conectado = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco_lojageek", "root", "divino");
+            PreparedStatement stConsultar = conectado.prepareStatement("SELECT * FROM produtos WHERE codigo LIKE ?");
+            stConsultar.setString(1, "%" + txtPesquisar.getText() + "%" );
+            ResultSet resultado = stConsultar.executeQuery();
+            //Tira um molde da tabela
+            DefaultTableModel modeloTabela;
+            modeloTabela = (DefaultTableModel) TbTabelaTelaRelatorio.getModel();
+            //Limpa a tabela
+            modeloTabela.setRowCount(0);
+            //fazer enquanto tiver departamento na variável resultado
+            while (resultado.next()) {
+                Object dep[] = {
+                    resultado.getString("codigo"),
+                    resultado.getString("produto"),
+                    resultado.getString("tpunitario"),
+                    resultado.getString("fornecedor"),
+                    resultado.getString("estoque")
+                };
+                modeloTabela.addRow(dep);
+            }
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void txtPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPesquisarActionPerformed
+
+    private void btnPesquisar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisar1ActionPerformed
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conectado = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco_lojageek", "root", "divino");
+            PreparedStatement stConsultar = conectado.prepareStatement("SELECT * FROM produtos WHERE tpunitario LIKE ?");
+            stConsultar.setString(1, "%" + txtPesquisar2.getText() + "%" );
+            ResultSet resultado = stConsultar.executeQuery();
+            //Tira um molde da tabela
+            DefaultTableModel modeloTabela;
+            modeloTabela = (DefaultTableModel) TbTabelaTelaRelatorio.getModel();
+            //Limpa a tabela
+            modeloTabela.setRowCount(0);
+            //fazer enquanto tiver departamento na variável resultado
+            while (resultado.next()) {
+                Object dep[] = {
+                    resultado.getString("codigo"),
+                    resultado.getString("produto"),
+                    resultado.getString("tpunitario"),
+                    resultado.getString("fornecedor"),
+                    resultado.getString("estoque")
+                };
+                modeloTabela.addRow(dep);
+            }
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_btnPesquisar1ActionPerformed
+
+    private void btnPesquisar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisar2ActionPerformed
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conectado = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco_lojageek", "root", "divino");
+            PreparedStatement stConsultar = conectado.prepareStatement("SELECT * FROM produtos WHERE produto LIKE ?");
+            stConsultar.setString(1, "%" + txtPesquisar1.getText() + "%" );
+            ResultSet resultado = stConsultar.executeQuery();
+            //Tira um molde da tabela
+            DefaultTableModel modeloTabela;
+            modeloTabela = (DefaultTableModel) TbTabelaTelaRelatorio.getModel();
+            //Limpa a tabela
+            modeloTabela.setRowCount(0);
+            //fazer enquanto tiver departamento na variável resultado
+            while (resultado.next()) {
+                Object dep[] = {
+                    resultado.getString("codigo"),
+                    resultado.getString("produto"),
+                    resultado.getString("tpunitario"),
+                    resultado.getString("fornecedor"),
+                    resultado.getString("estoque")
+                };
+                modeloTabela.addRow(dep);
+            }
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_btnPesquisar2ActionPerformed
+
+    private void txtPesquisar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPesquisar1ActionPerformed
+
+    private void txtPesquisar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPesquisar2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,20 +476,30 @@ public class relatorio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnMaiorEstoque;
-    private javax.swing.JButton BtnMaiorEstoque1;
     private javax.swing.JButton BtnMaisVendidos;
-    private javax.swing.JButton BtnMaisVendidos2;
     private javax.swing.JButton BtnMenorEstoque;
-    private javax.swing.JButton BtnMenorEstoque6;
     private javax.swing.JButton BtnMenosVendidos;
-    private javax.swing.JButton BtnMenosVendidos2;
     private javax.swing.JMenu MnAjudaTelaPrincipal;
     private javax.swing.JMenu MnCadastrarTelaPrincipal;
-    private javax.swing.JMenu MnRelatorioTelaPrincipal;
+    private javax.swing.JTable TbTabelaTelaRelatorio;
+    private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnPesquisar1;
+    private javax.swing.JButton btnPesquisar2;
+    private javax.swing.JMenuItem itmajuda;
+    private javax.swing.JMenuItem itmalterar;
+    private javax.swing.JMenuItem itmcadastrar;
+    private javax.swing.JMenuItem itmexcluir;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JMenuItem mnItConsultarRelatorio;
+    private javax.swing.JMenu mnrelatorio;
+    private javax.swing.JTextField txtPesquisar;
+    private javax.swing.JTextField txtPesquisar1;
+    private javax.swing.JTextField txtPesquisar2;
     // End of variables declaration//GEN-END:variables
 }

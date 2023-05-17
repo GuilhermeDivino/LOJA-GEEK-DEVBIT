@@ -38,9 +38,14 @@ public class excluirProduto extends javax.swing.JFrame {
         txtCodigo = new javax.swing.JTextField();
         BtnExcluirExcluir = new javax.swing.JButton();
         MnExcluir = new javax.swing.JMenuBar();
-        MnCadastroExcluir = new javax.swing.JMenu();
-        MnRelatorioExcluir = new javax.swing.JMenu();
-        MnAjudaTelaExcluir = new javax.swing.JMenu();
+        MnCadastrarTelaPrincipal = new javax.swing.JMenu();
+        itmcadastrar = new javax.swing.JMenuItem();
+        itmalterar = new javax.swing.JMenuItem();
+        itmexcluir = new javax.swing.JMenuItem();
+        mnrelatorio = new javax.swing.JMenu();
+        mnItConsultarRelatorio = new javax.swing.JMenuItem();
+        MnAjudaTelaPrincipal = new javax.swing.JMenu();
+        itmajuda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -102,14 +107,62 @@ public class excluirProduto extends javax.swing.JFrame {
         getContentPane().add(BtnExcluirExcluir);
         BtnExcluirExcluir.setBounds(720, 360, 170, 100);
 
-        MnCadastroExcluir.setText("Cadastro");
-        MnExcluir.add(MnCadastroExcluir);
+        MnCadastrarTelaPrincipal.setText("Cadastro");
 
-        MnRelatorioExcluir.setText("Relatorio");
-        MnExcluir.add(MnRelatorioExcluir);
+        itmcadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmcadastrar.setText("Cadastrar");
+        itmcadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmcadastrarActionPerformed(evt);
+            }
+        });
+        MnCadastrarTelaPrincipal.add(itmcadastrar);
 
-        MnAjudaTelaExcluir.setText("Ajuda");
-        MnExcluir.add(MnAjudaTelaExcluir);
+        itmalterar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmalterar.setText("Alterar");
+        itmalterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmalterarActionPerformed(evt);
+            }
+        });
+        MnCadastrarTelaPrincipal.add(itmalterar);
+
+        itmexcluir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmexcluir.setText("Excluir");
+        itmexcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmexcluirActionPerformed(evt);
+            }
+        });
+        MnCadastrarTelaPrincipal.add(itmexcluir);
+
+        MnExcluir.add(MnCadastrarTelaPrincipal);
+
+        mnrelatorio.setText("Relatorio");
+
+        mnItConsultarRelatorio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnItConsultarRelatorio.setText("Consultar");
+        mnItConsultarRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItConsultarRelatorioActionPerformed(evt);
+            }
+        });
+        mnrelatorio.add(mnItConsultarRelatorio);
+
+        MnExcluir.add(mnrelatorio);
+
+        MnAjudaTelaPrincipal.setText("Ajuda");
+
+        itmajuda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmajuda.setText("geral");
+        itmajuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmajudaActionPerformed(evt);
+            }
+        });
+        MnAjudaTelaPrincipal.add(itmajuda);
+
+        MnExcluir.add(MnAjudaTelaPrincipal);
 
         setJMenuBar(MnExcluir);
 
@@ -153,6 +206,26 @@ public class excluirProduto extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BtnExcluirExcluirActionPerformed
 
+    private void itmcadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmcadastrarActionPerformed
+        new CadastrarProduto().setVisible(true);
+    }//GEN-LAST:event_itmcadastrarActionPerformed
+
+    private void itmalterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmalterarActionPerformed
+        new alterarProduto().setVisible(true);
+    }//GEN-LAST:event_itmalterarActionPerformed
+
+    private void itmexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmexcluirActionPerformed
+        new excluirProduto().setVisible(true);
+    }//GEN-LAST:event_itmexcluirActionPerformed
+
+    private void mnItConsultarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItConsultarRelatorioActionPerformed
+        new relatorio().setVisible(true);
+    }//GEN-LAST:event_mnItConsultarRelatorioActionPerformed
+
+    private void itmajudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmajudaActionPerformed
+        new ajuda().setVisible(true);
+    }//GEN-LAST:event_itmajudaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -190,16 +263,21 @@ public class excluirProduto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnExcluirExcluir;
-    private javax.swing.JMenu MnAjudaTelaExcluir;
-    private javax.swing.JMenu MnCadastroExcluir;
+    private javax.swing.JMenu MnAjudaTelaPrincipal;
+    private javax.swing.JMenu MnCadastrarTelaPrincipal;
     private javax.swing.JMenuBar MnExcluir;
-    private javax.swing.JMenu MnRelatorioExcluir;
     private javax.swing.JLabel iblAvisoExcluir;
     private javax.swing.JLabel iblAvisoExcluir1;
     private javax.swing.JLabel iblAvisoExcluir2;
     private javax.swing.JLabel iblAvisoExcluir3;
     private javax.swing.JLabel iblAvisoExcluir4;
     private javax.swing.JLabel iblCodigoExcluir;
+    private javax.swing.JMenuItem itmajuda;
+    private javax.swing.JMenuItem itmalterar;
+    private javax.swing.JMenuItem itmcadastrar;
+    private javax.swing.JMenuItem itmexcluir;
+    private javax.swing.JMenuItem mnItConsultarRelatorio;
+    private javax.swing.JMenu mnrelatorio;
     private javax.swing.JTextField txtCodigo;
     // End of variables declaration//GEN-END:variables
 }

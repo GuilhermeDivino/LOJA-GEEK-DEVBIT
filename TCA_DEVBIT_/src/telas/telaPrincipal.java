@@ -64,9 +64,13 @@ public class telaPrincipal extends javax.swing.JFrame {
         BtnAlterarProdutoTelaPrincipal1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         MnCadastrarTelaPrincipal = new javax.swing.JMenu();
-        MnRelatorioTelaPrincipal = new javax.swing.JMenu();
+        itmcadastrar = new javax.swing.JMenuItem();
+        itmalterar = new javax.swing.JMenuItem();
+        itmexcluir = new javax.swing.JMenuItem();
+        mnrelatorio = new javax.swing.JMenu();
         mnItConsultarRelatorio = new javax.swing.JMenuItem();
         MnAjudaTelaPrincipal = new javax.swing.JMenu();
+        itmajuda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema DEVBIT");
@@ -133,21 +137,60 @@ public class telaPrincipal extends javax.swing.JFrame {
         jMenuBar1.setBackground(new java.awt.Color(51, 102, 255));
 
         MnCadastrarTelaPrincipal.setText("Cadastro");
+
+        itmcadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmcadastrar.setText("Cadastrar");
+        itmcadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmcadastrarActionPerformed(evt);
+            }
+        });
+        MnCadastrarTelaPrincipal.add(itmcadastrar);
+
+        itmalterar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmalterar.setText("Alterar");
+        itmalterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmalterarActionPerformed(evt);
+            }
+        });
+        MnCadastrarTelaPrincipal.add(itmalterar);
+
+        itmexcluir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmexcluir.setText("Excluir");
+        itmexcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmexcluirActionPerformed(evt);
+            }
+        });
+        MnCadastrarTelaPrincipal.add(itmexcluir);
+
         jMenuBar1.add(MnCadastrarTelaPrincipal);
 
-        MnRelatorioTelaPrincipal.setText("Relatorio");
+        mnrelatorio.setText("Relatorio");
 
+        mnItConsultarRelatorio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnItConsultarRelatorio.setText("Consultar");
         mnItConsultarRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnItConsultarRelatorioActionPerformed(evt);
             }
         });
-        MnRelatorioTelaPrincipal.add(mnItConsultarRelatorio);
+        mnrelatorio.add(mnItConsultarRelatorio);
 
-        jMenuBar1.add(MnRelatorioTelaPrincipal);
+        jMenuBar1.add(mnrelatorio);
 
         MnAjudaTelaPrincipal.setText("Ajuda");
+
+        itmajuda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmajuda.setText("geral");
+        itmajuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmajudaActionPerformed(evt);
+            }
+        });
+        MnAjudaTelaPrincipal.add(itmajuda);
+
         jMenuBar1.add(MnAjudaTelaPrincipal);
 
         setJMenuBar(jMenuBar1);
@@ -168,9 +211,25 @@ public class telaPrincipal extends javax.swing.JFrame {
     new alterarProduto().setVisible(true);
     }//GEN-LAST:event_BtnAlterarProdutoTelaPrincipal1ActionPerformed
 
+    private void itmcadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmcadastrarActionPerformed
+        new CadastrarProduto().setVisible(true);
+    }//GEN-LAST:event_itmcadastrarActionPerformed
+
+    private void itmalterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmalterarActionPerformed
+        new alterarProduto().setVisible(true);
+    }//GEN-LAST:event_itmalterarActionPerformed
+
+    private void itmexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmexcluirActionPerformed
+        new excluirProduto().setVisible(true);
+    }//GEN-LAST:event_itmexcluirActionPerformed
+
     private void mnItConsultarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItConsultarRelatorioActionPerformed
         new relatorio().setVisible(true);
     }//GEN-LAST:event_mnItConsultarRelatorioActionPerformed
+
+    private void itmajudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmajudaActionPerformed
+        new ajuda().setVisible(true);
+    }//GEN-LAST:event_itmajudaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,10 +272,14 @@ public class telaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BtnExcluirProdutoTelaPrincipal;
     private javax.swing.JMenu MnAjudaTelaPrincipal;
     private javax.swing.JMenu MnCadastrarTelaPrincipal;
-    private javax.swing.JMenu MnRelatorioTelaPrincipal;
     private javax.swing.JTable TbTabelaTelaPrincipal;
+    private javax.swing.JMenuItem itmajuda;
+    private javax.swing.JMenuItem itmalterar;
+    private javax.swing.JMenuItem itmcadastrar;
+    private javax.swing.JMenuItem itmexcluir;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem mnItConsultarRelatorio;
+    private javax.swing.JMenu mnrelatorio;
     // End of variables declaration//GEN-END:variables
 }

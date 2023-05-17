@@ -99,7 +99,7 @@ public class login extends javax.swing.JFrame {
 
         btnSalvar.setBackground(new java.awt.Color(51, 102, 255));
         btnSalvar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        btnSalvar.setText("Salvar");
+        btnSalvar.setText("Entrar");
         btnSalvar.setMaximumSize(new java.awt.Dimension(90, 27));
         btnSalvar.setMinimumSize(new java.awt.Dimension(90, 27));
         btnSalvar.setPreferredSize(new java.awt.Dimension(90, 27));
@@ -124,11 +124,11 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        new Cadastro().setVisible(true);
+        new telaPrincipal().setVisible(true);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
+        new telaPrincipal().setVisible(true);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
