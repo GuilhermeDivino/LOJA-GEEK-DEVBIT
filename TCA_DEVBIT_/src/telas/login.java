@@ -124,11 +124,32 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        new telaPrincipal().setVisible(true);
+        new loginCadastro().setVisible(true);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        new telaPrincipal().setVisible(true);
+          try {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    Connection conectado = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco_lojageek", "root", "divino");
+    PreparedStatement st = conectado.prepareStatement("SELECT * FROM usuarios WHERE usuario = ? AND senha = ?");
+    
+    st.setString(1, txtUsuario.getText());
+    st.setString(2, txtSenha.getText());
+    ResultSet resultado =  st.executeQuery();
+    
+   if (resultado.next()){ //Se encontrou os dados do usuário
+               dispose();
+               new telaPrincipal().setVisible(true);
+            } else { //Se não encontrou o sdadosdo usuário
+               JOptionPane.showMessageDialog(null, "Usuário e/ou senha inválidos");
+            }
+    
+    
+} catch (ClassNotFoundException ex) {
+    JOptionPane.showMessageDialog(null, ex.getMessage());
+} catch (SQLException ex) {
+    JOptionPane.showMessageDialog(null, ex.getMessage());
+}
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**

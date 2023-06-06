@@ -125,11 +125,55 @@ public class loginCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        new CadastrarProduto().setVisible(true);
+        new login().setVisible(true);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
+         if (txtUsuario.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "A matricula é obrigatória");
+            txtUsuario.requestFocus();
+            return; // para a execução do programa
+        }
+
+        if (txtSenha.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "O nome é obrigatório");
+            txtSenha.requestFocus();
+            return; // para a execução do programa
+        }
+       
+        try {
+            //Indica o nome da classe do driver JDBC colocada na Library do projto
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            //Faz a conexão com o banco de dados  guarda na variável conectado
+            Connection conectado = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco_lojageek", "root", "divino");
+            //Prepara um comando SQL INSERT incompleto
+            PreparedStatement stSalvar = conectado.prepareStatement("INSERT INTO usuarios VALUES(?,?)");
+            //Completa o comando SQL INSERT preparado na linha anterior
+            stSalvar.setString(1, txtUsuario.getText());
+            stSalvar.setString(2, txtSenha.getText());
+            
+            //Executa o comand INSERT e insere os dados digitados na tabela departamento do banco de dados
+            stSalvar.executeUpdate();
+            //Mostra a mensagem de confirmação da inclusão do registro na tabela do banco de dados
+            JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
+            //Limpar os campos na tela
+            txtUsuario.setText("");
+            txtSenha.setText("");
+         
+            //Colocar o cursor no campo código
+            txtUsuario.requestFocus();
+        } catch (ClassNotFoundException ex) {
+            //Se a classe do driver JDBC não estiver na Library do projeto, mostra a mensagem de erro abaixo
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } catch (SQLException ex) {
+            //Se você errou alguma informação do banco de dados mostra a mensagem abaixo
+            if (ex.getMessage().contains("Duplicate entry")) {
+                JOptionPane.showMessageDialog(null, "Este usuario " + txtUsuario.getText() + " já está cadastrado");
+                txtUsuario.requestFocus();
+            } else {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
